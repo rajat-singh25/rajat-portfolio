@@ -72,6 +72,23 @@ body:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;bac
 .java-icon{color:#b3a4ff;border-color:#b3a4ff66;background:#b3a4ff0c}
 .cert-btn{margin-top:20px;display:inline-block;position:relative;z-index:1}.certificate-card h3{margin-top:16px}
 @media(max-width:760px){.certificate-grid{grid-template-columns:1fr}}
+
+/* UPI support card */
+.upi-card{position:relative;display:grid;grid-template-columns:112px 1fr auto;align-items:center;gap:24px;padding:30px;border:1px solid rgba(93,255,194,.28);border-radius:24px;background:linear-gradient(120deg,rgba(13,38,43,.92),rgba(8,13,30,.95));box-shadow:0 0 38px rgba(37,255,177,.08);overflow:hidden;isolation:isolate}
+.upi-card:before{content:"";position:absolute;inset:-60% auto -60% -20%;width:35%;background:linear-gradient(90deg,transparent,rgba(82,255,190,.09),transparent);transform:rotate(18deg);animation:upiSweep 5s linear infinite;z-index:-1}
+.upi-mark{width:104px;height:104px;border-radius:25px;display:grid;place-items:center;color:#b7ffe1;background:radial-gradient(circle at 30% 20%,rgba(89,255,187,.3),rgba(20,69,64,.55));border:1px solid rgba(110,255,201,.45);box-shadow:0 0 25px rgba(55,255,184,.2),inset 0 0 20px rgba(55,255,184,.08);animation:upiPulse 3s ease-in-out infinite}
+.upi-mark svg{width:60px;height:60px;filter:drop-shadow(0 0 10px rgba(83,255,185,.45))}
+.upi-copy small{display:block;font:10px var(--mono);letter-spacing:.18em;color:#77f7c5;margin-bottom:9px}
+.upi-copy h3{font-size:clamp(1.5rem,3vw,2.3rem);margin:0 0 9px}
+.upi-copy p{margin:0;color:#9eacc8;line-height:1.6}
+.upi-id-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:15px}
+.upi-id{font:600 14px var(--mono);color:#d5ffeb;letter-spacing:.03em}
+.upi-actions{display:flex;flex-direction:column;gap:10px;min-width:145px}
+.upi-btn{border:1px solid rgba(112,255,203,.42);border-radius:12px;padding:13px 16px;color:#caffeb;background:rgba(34,170,120,.13);font:700 11px var(--mono);letter-spacing:.08em;text-align:center;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s}
+.upi-btn:hover{transform:translateY(-3px);box-shadow:0 0 22px rgba(68,255,184,.17);background:rgba(34,170,120,.24)}
+@keyframes upiPulse{0%,100%{transform:translateY(0);box-shadow:0 0 25px rgba(55,255,184,.18)}50%{transform:translateY(-5px);box-shadow:0 0 36px rgba(55,255,184,.3)}}
+@keyframes upiSweep{0%{left:-45%}100%{left:120%}}
+@media(max-width:700px){.upi-card{grid-template-columns:76px 1fr;padding:21px;gap:16px}.upi-mark{width:72px;height:72px;border-radius:19px}.upi-mark svg{width:43px;height:43px}.upi-actions{grid-column:1/-1;flex-direction:row}.upi-btn{flex:1}.upi-copy h3{font-size:1.4rem}}
 </style></head>
 <body class="lock"><div class="ambient"></div><div class="cursor-aura" id="cursorAura"></div><canvas id="particles"></canvas><div class="grain"></div>
 <div class="intro" id="intro"><div class="intro-grid"></div><div class="intro-rift"></div><div class="intro-content"><div class="intro-kicker"><span class="live-dot"></span> PERSONAL PORTFOLIO / ONLINE <span class="live-dot"></span></div><h1 class="intro-title">Rajat Kumar Singh</h1><div class="intro-sub">ASPIRING AI ENGINEER · AI / ML · GENERATIVE AI</div><button class="intro-button" id="enterBtn">ENTER MY WORLD&nbsp; ↗</button><span class="intro-note">A JOURNEY THROUGH CODE, CURIOSITY & CREATION</span></div></div>
@@ -103,7 +120,27 @@ body:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;bac
 <a class="social-card linkedin reveal delay-1" href="https://www.linkedin.com/in/rajat-singh2504" target="_blank" rel="noopener noreferrer" aria-label="Open Rajat's LinkedIn profile"><span class="social-arrow">↗</span><span class="social-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 3.2a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4zM3.4 9h3.6v11.6H3.4zM9.2 9h3.4v1.6h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.35 4.24 5.4v6.45h-3.6v-5.72c0-1.37-.03-3.13-1.9-3.13-1.9 0-2.2 1.48-2.2 3.03v5.82H9.2z"/></svg></span><span class="social-meta"><small>PROFESSIONAL NETWORK</small><strong>LinkedIn</strong><span>LET'S CONNECT</span></span></a>
 <a class="social-card gmail reveal delay-2" href="https://mail.google.com/mail/?view=cm&amp;to=rajat2002@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email Rajat"><span class="social-arrow">↗</span><span class="social-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 5.5A2.5 2.5 0 0 1 5 3h14a2.5 2.5 0 0 1 2.5 2.5v13A2.5 2.5 0 0 1 19 21H5a2.5 2.5 0 0 1-2.5-2.5zm2.2.1 7.3 5.6 7.3-5.6A.5.5 0 0 0 19 5H5a.5.5 0 0 0-.3.6zm14.6 2.5-6.7 5.1a1 1 0 0 1-1.2 0L4.7 8.1v10.4c0 .2.1.3.3.3h14c.2 0 .3-.1.3-.3z"/></svg></span><span class="social-meta"><small>EMAIL DIRECTLY</small><strong>Gmail</strong><span>RAJAT2002@GMAIL.COM</span></span></a>
 </div></section>
-<section class="content-section" id="socials"><div class="section-head reveal"><div><div class="eyebrow">09 / SOCIAL FREQUENCIES</div><h2>Find me <span>outside the matrix.</span></h2></div><p class="section-note">Follow along, see what I share, and connect with me across social platforms.</p></div><div class="social-grid">
+
+<section class="content-section" id="upi-support">
+  <div class="section-head reveal">
+    <div><div class="eyebrow">10 / QUICK PAY</div><h2>Pay <span>via UPI.</span></h2></div>
+    <p class="section-note">Want to support or pay me? Use the UPI ID below with your preferred UPI app.</p>
+  </div>
+  <div class="upi-card reveal">
+    <div class="upi-mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><path d="M35 5 15 35h14l-3 24 23-34H34l1-20Z" fill="currentColor"/><circle cx="32" cy="32" r="29" stroke="currentColor" stroke-opacity=".45" stroke-width="1.5"/></svg></div>
+    <div class="upi-copy">
+      <small>INSTANT DIGITAL PAYMENT</small>
+      <h3>Support Rajat</h3>
+      <p>Scan or copy my UPI ID in your UPI app. Always verify the recipient name before approving a payment.</p>
+      <div class="upi-id-row"><span class="upi-id" id="upiIdText">mrnice24@slc</span></div>
+    </div>
+    <div class="upi-actions">
+      <a class="upi-btn" href="upi://pay?pa=mrnice24%40slc&amp;pn=Rajat%20Kumar%20Singh" aria-label="Pay Rajat using UPI">PAY VIA UPI ↗</a>
+      <button class="upi-btn" type="button" id="copyUpiBtn">COPY UPI ID ⧉</button>
+    </div>
+  </div>
+</section>
+\n<section class="content-section" id="socials"><div class="section-head reveal"><div><div class="eyebrow">09 / SOCIAL FREQUENCIES</div><h2>Find me <span>outside the matrix.</span></h2></div><p class="section-note">Follow along, see what I share, and connect with me across social platforms.</p></div><div class="social-grid">
 <a class="social-card instagram reveal" style="--delay:0s" href="https://www.instagram.com/mrnice.24" target="_blank" rel="noopener noreferrer" aria-label="Open Rajat's Instagram profile"><span class="social-arrow">↗</span><span class="social-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7zm5 2.3a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2.2a3.3 3.3 0 1 0 0 6.6 3.3 3.3 0 0 0 0-6.6zm5.8-3.4a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z"/></svg></span><span class="social-meta"><small>VISUAL DIARY</small><strong>Instagram</strong><span>@MRNICE.24</span></span></a>
 <a class="social-card facebook reveal delay-1" style="--delay:.4s" href="https://www.facebook.com/rajatkumar.singh.336333" target="_blank" rel="noopener noreferrer" aria-label="Open Rajat's Facebook profile"><span class="social-arrow">↗</span><span class="social-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.4 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.2h2.7V21h3.7z"/></svg></span><span class="social-meta"><small>FRIENDS & UPDATES</small><strong>Facebook</strong><span>RAJAT KUMAR SINGH</span></span></a>
 <a class="social-card snapchat reveal delay-2" style="--delay:.8s" href="https://www.snapchat.com/add/mrnice.24" target="_blank" rel="noopener noreferrer" aria-label="Open Rajat's Snapchat profile"><span class="social-arrow">↗</span><span class="social-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c-2.4 0-4.1 1.7-4.1 4.5 0 .8.1 1.7.2 2.4-.4.2-.9.1-1.4-.2-.3-.2-.7-.2-.9.1-.2.3-.1.7.2.9.6.4 1.3.5 2 .3.2.7.1 1.5-.5 2.1-.6.7-1.4 1.1-2.4 1.4-.5.1-.6.7-.2 1 .7.5 1.5.7 2.2.8.4.1.6.4.7.7.2.5.6.8 1.1.7.4-.1.8-.2 1.2-.1.7.1 1.2.6 1.9 1.1.7.5 1.4.8 2 .8s1.3-.3 2-.8c.7-.5 1.2-1 1.9-1.1.4-.1.8 0 1.2.1.5.1.9-.2 1.1-.7.1-.3.3-.6.7-.7.7-.1 1.5-.3 2.2-.8.4-.3.3-.9-.2-1-1-.3-1.8-.7-2.4-1.4-.6-.6-.7-1.4-.5-2.1.7.2 1.4.1 2-.3.3-.2.4-.6.2-.9-.2-.3-.6-.3-.9-.1-.5.3-1 .4-1.4.2.1-.7.2-1.6.2-2.4 0-2.8-1.7-4.5-4.1-4.5z"/></svg></span><span class="social-meta"><small>QUICK MOMENTS</small><strong>Snapchat</strong><span>ADD @MRNICE.24</span></span></a>
@@ -233,4 +270,21 @@ if(window.gsap&&!reduced){
 }
 
 })();
+
+document.getElementById('copyUpiBtn')?.addEventListener('click', async function(){
+  const id='mrnice24@slc';
+  const btn=this;
+  try {
+    await navigator.clipboard.writeText(id);
+    btn.textContent='COPIED ✓';
+  } catch(e) {
+    const field=document.createElement('textarea');
+    field.value=id; field.style.position='fixed'; field.style.opacity='0';
+    document.body.appendChild(field); field.select();
+    try { document.execCommand('copy'); btn.textContent='COPIED ✓'; }
+    catch(err) { btn.textContent=id; }
+    field.remove();
+  }
+  setTimeout(()=>{btn.textContent='COPY UPI ID ⧉';},2200);
+});
 </script></body></html>
