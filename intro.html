@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAJAT | AI ENGINEER</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #050509;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.intro {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 18px;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 50% 40%, #27101d 0%, #0b0810 48%, #030306 100%);
+}
+
+.intro::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    z-index: -1;
+    background: conic-gradient(
+        from 0deg,
+        transparent,
+        #5e20ff33,
+        transparent,
+        #ff174433,
+        transparent,
+        #5e20ff33,
+        transparent
+    );
+    animation: rotateGlow 18s linear infinite;
+}
+
+.grid {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.17;
+    background-image:
+        linear-gradient(#ffffff12 1px, transparent 1px),
+        linear-gradient(90deg, #ffffff12 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(transparent, black 25%, black 75%, transparent);
+}
+
+.orb {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: #8b1cff;
+    filter: blur(100px);
+    opacity: 0.22;
+    top: 20%;
+    left: -120px;
+    animation: floatOrb 7s ease-in-out infinite alternate;
+}
+
+.orb.two {
+    background: #ff183d;
+    top: auto;
+    left: auto;
+    right: -120px;
+    bottom: 10%;
+    animation-delay: -3s;
+}
+
+.content {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.badge {
+    color: #d3b9ff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    border: 1px solid #a66cff55;
+    background: #8b35ff12;
+    padding: 10px 16px;
+    border-radius: 30px;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeDown 0.8s ease forwards 0.2s;
+}
+
+.photo-wrap {
+    position: relative;
+    width: min(66vw, 285px);
+    aspect-ratio: 4 / 5;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(35px) scale(0.88);
+    animation: photoEnter 1.2s cubic-bezier(.2,.8,.2,1) forwards 0.45s;
+}
+
+.photo-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 150px 150px 35px 35px;
+    background: linear-gradient(145deg, #ff405e, #8b5dff, #4adfff, #ff405e);
+    background-size: 300% 300%;
+    animation: borderFlow 5s linear infinite;
+}
+
+.photo-wrap::after {
+    content: "";
+    position: absolute;
+    inset: -14px;
+    border-radius: 160px 160px 45px 45px;
+    border: 1px solid #bc79ff50;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center 25%;
+    position: relative;
+    z-index: 1;
+    border-radius: 148px 148px 32px 32px;
+    border: 3px solid #090710;
+    box-shadow: 0 0 45px #a12aff35;
+}
+
+.name {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: clamp(38px, 11vw, 66px);
+    letter-spacing: 5px;
+    line-height: 1.2;
+    opacity: 0;
+    background: linear-gradient(100deg, #ffffff 10%, #d8c4ff 35%, #ffffff 50%, #a7d8ff 75%, #ffffff 90%);
+    background-size: 250% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 18px #9c5bff35);
+    animation: fadeUp 0.8s ease forwards 1.05s, textShine 5s linear infinite 1.8s;
+}
+
+.role {
+    margin-top: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 6px;
+    color: #c4b2ff;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1.3s;
+}
+
+.role span {
+    color: #ff5578;
+}
+
+.line {
+    width: 0;
+    height: 1px;
+    margin: 24px 0;
+    background: linear-gradient(90deg, transparent, #9d6aff, #ff5277, transparent);
+    animation: lineGrow 0.9s ease forwards 1.5s;
+}
+
+.enter {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    min-width: 220px;
+    padding: 17px 25px;
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    border-radius: 6px;
+    border: 1px solid #bd8cff;
+    background: linear-gradient(110deg, #6928d9, #39207b);
+    box-shadow: 0 0 25px #853cff30, inset 0 0 15px #ffffff0b;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1.7s, buttonGlow 2.5s ease-in-out infinite 2.5s;
+    transition: transform 0.25s, background 0.25s;
+}
+
+.enter:active {
+    transform: scale(0.96);
+}
+
+.arrow {
+    font-size: 18px;
+    transition: transform 0.25s;
+}
+
+.enter:hover .arrow {
+    transform: translateX(5px);
+}
+
+.bottom-note {
+    position: absolute;
+    bottom: 22px;
+    color: #777183;
+    font-size: 9px;
+    letter-spacing: 3px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 2s;
+}
+
+@keyframes photoEnter {
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rotateGlow {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes floatOrb {
+    to { transform: translate(70px, 50px) scale(1.25); }
+}
+
+@keyframes borderFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.45; }
+    50% { transform: scale(1.035); opacity: 0.9; }
+}
+
+@keyframes textShine {
+    to { background-position: 250% center; }
+}
+
+@keyframes lineGrow {
+    to { width: 150px; }
+}
+
+@keyframes buttonGlow {
+    0%, 100% { box-shadow: 0 0 20px #853cff25; }
+    50% { box-shadow: 0 0 32px #853cff65; }
+}
+
+@media (max-height: 650px) {
+    .badge { margin-bottom: 15px; }
+    .photo-wrap { width: min(42vh, 210px); margin-bottom: 20px; }
+    .role { margin-top: 8px; }
+    .line { margin: 15px 0; }
+    .bottom-note { bottom: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+<main class="intro">
+    <div class="grid"></div>
+    <div class="orb"></div>
+    <div class="orb two"></div>
+
+    <section class="content">
+        <div class="badge">WELCOME TO MY WORLD</div>
+
+        <div class="photo-wrap">
+            <img class="photo"
+                 src="rajat.png"
+                 alt="Rajat - AI Engineer"
+                 onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#31134e,#080810)';this.parentElement.innerHTML+='<p style=&quot;position:absolute;inset:0;display:grid;place-items:center;color:white;font-size:14px;padding:20px&quot;>Photo not found.<br>Check rajat.png filename.</p>';">
+        </div>
+
+        <h1 class="name">RAJAT</h1>
+        <p class="role">AI <span>ENGINEER</span></p>
+
+        <div class="line"></div>
+
+        <a class="enter" href="index.html">
+            ENTER PORTFOLIO <span class="arrow">→</span>
+        </a>
+    </section>
+
+    <div class="bottom-note">DREAM · BUILD · INNOVATE</div>
+</main>
+</body>
+</html>
